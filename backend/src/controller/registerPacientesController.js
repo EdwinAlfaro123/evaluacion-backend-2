@@ -67,6 +67,7 @@ registerPacientesController.register = async (req, res) => {
                 }
                 return res.status(200).json({message: "sent"})
             })
+
     } catch (error) {
         console.log("error" + error)
         return res.status(500).json({message: "Internal Server Error"})
@@ -76,7 +77,7 @@ registerPacientesController.register = async (req, res) => {
 registerPacientesController.verifyCode = async (req, res) => {
     try {
         const {verificationCodeRequest} = req.body
-        const token = req.cookies.registrationCookie
+        const token = req.cookies.registerCookie
         const decoded = jsonwebtoken.verify(token, config.JWT.secret)
         const {randomCode: storedCode,
             name,
@@ -87,6 +88,8 @@ registerPacientesController.verifyCode = async (req, res) => {
             phone,
             address,
             phoneEmergencyContacts,
+            profilePhoto,
+            public_id,
             isVerified,
             loginAttempts,
             timeOut
@@ -105,10 +108,12 @@ registerPacientesController.verifyCode = async (req, res) => {
             phone,
             address,
             phoneEmergencyContacts,
+            profilePhoto,
+            public_id,
             isVerified: true,
         })
         await newPaciente.save()
-        res.clearCookie("registrationCookie")
+        res.clearCookie("registerCookie")
         return res.status(200).json({message: "registrado"})
     } catch (error) {
         console.log("error" + error)

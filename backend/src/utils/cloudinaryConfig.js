@@ -10,7 +10,7 @@ cloudinary.config({
 })
 
 const storage = new CloudinaryStorage({
-    cloudinary: cloudinary,
+    cloudinary,
     params: {
         folder: "grupo2B",
         allowed_formats: ["jpg", "png", "jpeg", "gif"]
