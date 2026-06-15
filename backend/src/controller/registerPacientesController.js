@@ -40,6 +40,8 @@ registerPacientesController.register = async (req, res) => {
             phone,
             address,
             phoneEmergencyContacts,
+            profilePhoto: req.file.path,
+            public_id: req.file.filename,
             isVerified,
             timeOut}, config.JWT.secret, {expiresIn: "15m"})
             res.cookie("registerCookie", token, {maxAge: 15 * 60 * 1000})
