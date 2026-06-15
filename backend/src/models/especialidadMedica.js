@@ -7,7 +7,7 @@ const especialidadMedicaSchema = new Schema(
         isAvailable: {type: Boolean}
     },
     {
-        timeseries: true,
+        timestamps: true,
         strict: false
     }
 )

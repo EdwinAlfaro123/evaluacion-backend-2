@@ -31,11 +31,11 @@ especialidadMedicaController.put = async (req, res) => {
                 specialtyName,
                 description,
                 isAvailable
-            }
+            }, {new: true}
         )
 
         if(!updatedEspecialidad){
-            return res.status(400).json({message: "No encontrado"})
+            return res.status(404).json({message: "No encontrado"})
         }
 
         return res.status(200).json({message: "Actualizado"})
