@@ -5,6 +5,7 @@ import especialidadRoutes from "./src/routes/especialidadMedica.js"
 import equipoRoutes from "./src/routes/equipoMedicos.js"
 import pacienteRoutes from "./src/routes/paciente.js"
 import citaMedicaRoutes from "./src/routes/citasMedicas.js"
+import expedienteMedicoRoutes from "./src/routes/expedienteMedico.js"
 
 import registerRoute from "./src/routes/registerPaciente.js"
 import loginRoutes from "./src/routes/loginPaciente.js"
@@ -23,5 +24,6 @@ app.use("/api/login", loginRoutes)
 app.use("/api/logout", logoutRoutes)
 app.use("/api/recovery", recoveryPasswordRoutes)
 app.use("/api/citas", citaMedicaRoutes)
+app.use("/api/expediente", expedienteMedicoRoutes)
 
 export default app
