@@ -34,7 +34,7 @@ equipoMedicoController.post = async (req, res) => {
             maintenanceDate,
             condition,
             image: req.file.path,
-            piblic_id: req.file.filename,
+            public_id: req.file.filename,
             status,
             isAvailable
         })
